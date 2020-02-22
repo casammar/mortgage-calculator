@@ -21,3 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Email related routes
 Route::get('mail/send', 'MailController@send');
+
+// Calculator routes
+Route::get('/calculator', 'CalculationController@create');
+Route::resource('calculation', 'CalculationController');
