@@ -73,16 +73,16 @@ class CalculationController extends Controller
         Discount Factor (D) = {[(1 + i) ^n] - 1} / [i(1 + i)^n]
         */
 
-        # number of payments
+        // number of payments
         $n = $calculation['years'] * 12;
         $calculation['total_payments'] = $n;
-        # interest rate
+        // interest rate
         $i = ($calculation['interest_rate'] / 100) / 12;
         $calculation['periodic_interest_rate'] = $i;
-        # discount rate
+        // discount rate
         $d = (pow((1+$i), $n)-1)/($i * pow((1+$i), $n));
         $calculation['discount_factor'] = $i;
-        #monthly payment amount
+        // monthly payment amount
         $monthly_payment = round(($calculation['loan_value'] / $d), 2);
         $calculation['monthly_payment'] = $monthly_payment;
 
